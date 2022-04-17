@@ -27,7 +27,7 @@ export default function SignIn(props) {
       password: formData.get("password"),
     };
     const { data } = await axios.post(
-      "http://localhost:3002/api/v1/user/signin",
+      "http://localhost:80/api/v1/user/signin",
       form
     );
     if (data.status === parseInt("401")) {
