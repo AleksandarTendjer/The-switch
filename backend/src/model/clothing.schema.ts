@@ -2,13 +2,13 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { User } from './user.schema';
 
-export type VideoDocument = Video & Document;
+export type ClothingDocument = Clothing & Document;
 @Schema()
-export class Video {
+export class Clothing {
   @Prop()
   title: string;
   @Prop()
-  video: string;
+  type: string;
   @Prop()
   coverImage: string;
   @Prop({ default: Date.now() })
@@ -16,4 +16,5 @@ export class Video {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
   createdBy: User;
 }
-export const VideoSchema = SchemaFactory.createForClass(Video);
+
+export const ClothingSchema = SchemaFactory.createForClass(Clothing);

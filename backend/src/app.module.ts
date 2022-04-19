@@ -10,17 +10,19 @@ import { MulterModule } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { v4 as uuidv4 } from 'uuid';
 
-import { VideoController } from './controller/video.controller';
-import { VideoService } from './service/video.service';
+import { ClothingsController } from './controller/clothing.controller';
+import { ClothingService } from './service/clothing.service';
 import { UserService } from './service/user.service';
 import { UserController } from './controller/user.controller';
-import { Video, VideoSchema } from './model/video.schema';
+import { Clothing, ClothingSchema } from './model/clothing.schema';
 import { User, UserSchema } from './model/user.schema';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
-    MongooseModule.forFeature([{ name: Video.name, schema: VideoSchema }]),
+    MongooseModule.forFeature([
+      { name: Clothing.name, schema: ClothingSchema },
+    ]),
     MongooseModule.forRoot('mongodb://localhost:27017/Stream'),
     JwtModule.register({
       secret,
@@ -39,7 +41,7 @@ import { User, UserSchema } from './model/user.schema';
       }),
     }),
   ],
-  controllers: [AppController, VideoController, UserController],
-  providers: [AppService, VideoService, UserService],
+  controllers: [AppController, ClothingsController, UserController],
+  providers: [AppService, ClothingService, UserService],
 })
 export class AppModule {}
