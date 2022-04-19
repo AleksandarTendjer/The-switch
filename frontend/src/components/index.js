@@ -2,6 +2,8 @@ import SignIn from "./Auth/SignIn";
 import SignUp from "./Auth/SignUp";
 import VideoList from "./Video/VideoList";
 import Video from "./Video/Video";
+import Dashboard from "./Dashboard";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function Index(props) {
@@ -14,6 +16,10 @@ export default function Index(props) {
             <Route
               path="/video"
               element={<VideoList setLoggedIn={setLoggedIn} />}
+            ></Route>
+            <Route
+              path="/dashboard"
+              element={<Dashboard setLoggedIn={setLoggedIn} />}
             ></Route>
             <Route
               path="/video/:id"
