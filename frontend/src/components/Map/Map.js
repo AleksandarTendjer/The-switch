@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import * as React from "react";
 import GoogleMapReact from "google-map-react";
+import { Container } from "@mui/material";
 
 export const AnyReactComponent = ({ text }) => (
   <div
@@ -20,18 +21,22 @@ export const AnyReactComponent = ({ text }) => (
 );
 export class SimpleMap extends React.Component {
   static defaultProps = {
-    center: { lat: 59.95, lng: 30.33 },
+    center: { lat: 45.47, lng: -73.64 },
     zoom: 11,
   };
 
   render() {
     return (
-      <GoogleMapReact
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
-      >
-        <AnyReactComponent lat={59.955413} lng={30.337844} text={"Me"} />
-      </GoogleMapReact>
+      <Container>
+        <div style={{ height: "100vh", width: "100%" }}>
+          <GoogleMapReact
+            defaultCenter={this.props.center}
+            defaultZoom={this.props.zoom}
+          >
+            <AnyReactComponent lat={45.473439} lng={-73.641827} text={"Me"} />
+          </GoogleMapReact>
+        </div>
+      </Container>
     );
   }
 }

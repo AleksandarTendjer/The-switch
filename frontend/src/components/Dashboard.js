@@ -5,7 +5,8 @@ export default function Dashboard(props) {
   //logic to get coordinates from the users web browser
   return (
     <Container>
-      <ResponsiveAppBar /> <SimpleMap />
+      <ResponsiveAppBar />
+      <SimpleMap />
     </Container>
   );
 }
