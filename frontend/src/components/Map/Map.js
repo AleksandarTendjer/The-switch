@@ -20,13 +20,18 @@ export const AnyReactComponent = ({ text }) => (
   </div>
 );
 export class SimpleMap extends React.Component {
-  static state = {
-    center: { lat: 45.47, lng: -73.64 },
-    zoom: 11,
-    loading: true,
-  };
+  static state = {};
+  constructor(props) {
+    super(props);
 
-  componentWillMount(props) {
+    this.state = {
+      center: { lat: 45.47, lng: -73.64 },
+      zoom: 11,
+      loading: true,
+    };
+  }
+
+  componentDidMount(props) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
